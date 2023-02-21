@@ -11,7 +11,7 @@ public partial class InchiriereEntryPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        listView.ItemsSource = await App.Database.GetInchiriereListAsync();
+        listView.ItemsSource = await App.Database.GetInchiriereAsync();
     }
     async void OnInchiriereAddedClicked(object sender, EventArgs e)
     {
