@@ -8,6 +8,7 @@ public partial class InchirierePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
     async void OnSaveButtonClicked(object sender, EventArgs e)
     {
         var slist = (Inchiriere)BindingContext;
@@ -20,5 +21,14 @@ public partial class InchirierePage : ContentPage
         var slist = (Inchiriere)BindingContext;
         await App.Database.DeleteInchiriereAsync(slist);
         await Navigation.PopAsync();
+    }
+    async void OnChooseButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MasinaPage((Inchiriere)
+       this.BindingContext)
+        {
+            BindingContext = new Masina()
+        });
+
     }
 }
